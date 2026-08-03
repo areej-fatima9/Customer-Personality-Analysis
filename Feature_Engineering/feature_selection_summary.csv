@@ -1,0 +1,25 @@
+Feature,Data Type,Missing Values,Unique Values
+Customer_Age,int64,0,56
+Income,float64,0,1965
+Total_Children,int64,0,4
+Family_Size,int64,0,4
+Total_Spending,float64,0,1114
+Average_Spending_per_Purchase,float64,0,1327
+MntWines,int64,0,744
+MntFruits,int64,0,80
+MntMeatProducts,int64,0,422
+MntFishProducts,float64,0,100
+MntSweetProducts,int64,0,81
+MntGoldProds,float64,0,124
+Total_Purchases,int64,0,33
+NumWebPurchases,int64,0,15
+NumCatalogPurchases,int64,0,14
+NumStorePurchases,int64,0,14
+Total_Campaign_Acceptance,int64,0,5
+Response,int64,0,2
+Digital_Engagement,int64,0,25
+NumWebVisitsMonth,int64,0,16
+Recency,int64,0,100
+Customer_Tenure_Years,float64,0,192
+Deal_Dependency,float64,0,128
+NumDealsPurchases,int64,0,15

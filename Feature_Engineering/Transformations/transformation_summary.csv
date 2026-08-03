@@ -1,0 +1,14 @@
+Feature,Transformation,Reason,Skewness Before,Skewness After
+Deal_Dependency,Log1p,High positive skewness,31.745,2.786
+Average_Spending_per_Purchase,Log1p,High positive skewness,4.378,-0.295
+Total_Campaign_Acceptance,Log1p,High positive skewness,2.723,1.923
+NumDealsPurchases,Log1p,High positive skewness,2.417,0.664
+Response,Log1p,High positive skewness,1.969,1.969
+NumCatalogPurchases,Log1p,High positive skewness,1.882,0.132
+NumWebPurchases,Log1p,High positive skewness,1.382,-0.266
+MntFruits,Log1p,High positive skewness,1.235,-0.044
+MntFishProducts,Log1p,High positive skewness,1.232,-0.151
+MntSweetProducts,Log1p,High positive skewness,1.214,-0.048
+MntMeatProducts,Log1p,High positive skewness,1.214,-0.158
+MntGoldProds,Log1p,High positive skewness,1.112,-0.479
+MntWines,Log1p,High positive skewness,1.097,-0.553

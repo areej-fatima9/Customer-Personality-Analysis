@@ -1,0 +1,8 @@
+Validation Check,Status
+Missing Values,PASS
+Duplicate Customer Records,PASS
+Infinite Values,PASS
+Data Types,PASS
+Encoding,PASS
+Scaling,PASS
+Feature Consistency,PASS

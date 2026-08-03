@@ -1,0 +1,26 @@
+Original Feature,Original Category,Encoded Feature,Encoding Type
+Education,Graduation,Education_Graduation,One-Hot Encoding
+Education,Phd,Education_Phd,One-Hot Encoding
+Education,Master,Education_Master,One-Hot Encoding
+Education,Basic,Education_Basic,One-Hot Encoding
+Education,2N Cycle,Education_2N Cycle,One-Hot Encoding
+Marital_Status,Single,Marital_Status_Single,One-Hot Encoding
+Marital_Status,Together,Marital_Status_Together,One-Hot Encoding
+Marital_Status,Married,Marital_Status_Married,One-Hot Encoding
+Marital_Status,Divorced,Marital_Status_Divorced,One-Hot Encoding
+Marital_Status,Widow,Marital_Status_Widow,One-Hot Encoding
+Marital_Status,Alone,Marital_Status_Alone,One-Hot Encoding
+Marital_Status,Absurd,Marital_Status_Absurd,One-Hot Encoding
+Marital_Status,Yolo,Marital_Status_Yolo,One-Hot Encoding
+Preferred_Shopping_Channel,Catalog,Preferred_Shopping_Channel_Catalog,One-Hot Encoding
+Preferred_Shopping_Channel,Store,Preferred_Shopping_Channel_Store,One-Hot Encoding
+Preferred_Shopping_Channel,Web,Preferred_Shopping_Channel_Web,One-Hot Encoding
+Product_Preference,Wine,Product_Preference_Wine,One-Hot Encoding
+Product_Preference,Meat,Product_Preference_Meat,One-Hot Encoding
+Product_Preference,Fruits,Product_Preference_Fruits,One-Hot Encoding
+Product_Preference,Fish,Product_Preference_Fish,One-Hot Encoding
+Product_Preference,Gold,Product_Preference_Gold,One-Hot Encoding
+Product_Preference,Sweets,Product_Preference_Sweets,One-Hot Encoding
+Customer_Activity_Level,Moderately Active,Customer_Activity_Level_Moderately Active,One-Hot Encoding
+Customer_Activity_Level,Highly Active,Customer_Activity_Level_Highly Active,One-Hot Encoding
+Customer_Activity_Level,Inactive,Customer_Activity_Level_Inactive,One-Hot Encoding
