@@ -1,0 +1,6 @@
+Check,Result
+Dataset Loaded,PASS
+Missing Values,PASS
+Duplicate Customer Records,PASS
+Non-Numerical Columns,PASS
+Identifier Columns,None

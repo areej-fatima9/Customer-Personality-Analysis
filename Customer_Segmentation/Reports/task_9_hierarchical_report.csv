@@ -1,0 +1,6 @@
+Metric,Value
+Algorithm,Agglomerative Clustering
+Number of Clusters,2
+Linkage,Ward
+Silhouette Score,0.24025916558349783
+Davies-Bouldin Index,1.47271031369146

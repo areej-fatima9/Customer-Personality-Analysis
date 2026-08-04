@@ -1,0 +1,5 @@
+Algorithm,Number_of_Clusters,Silhouette_Score,Davies_Bouldin_Index,Training_Time_Seconds,Interpretability,Stability
+K-Means,2,0.2929,1.3796,0.1868,High,High
+Hierarchical,2,0.2403,1.4727,0.4011,High,Not Tested
+GMM,2,0.2736,1.4008,0.1548,Medium,Not Tested
+DBSCAN,3,0.2675,1.567,0.0449,Medium,Not Tested

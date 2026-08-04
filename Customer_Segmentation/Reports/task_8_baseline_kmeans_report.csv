@@ -1,0 +1,5 @@
+Metric,Value
+Number of Clusters,2.0
+Inertia_WCSS,25631.538183637796
+Silhouette_Score,0.29293088565825487
+Davies_Bouldin_Index,1.3796126004330695

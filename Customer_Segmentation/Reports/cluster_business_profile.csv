@@ -1,0 +1,3 @@
+KMeans_Cluster,Income,Total_Spending,Total_Purchases,Average_Spending_per_Purchase,Recency,Total_Campaign_Acceptance,NumWebPurchases,NumCatalogPurchases,NumStorePurchases,Digital_Engagement,NumDealsPurchases
+0,36951.44,147.71,6.98,17.11,48.8,0.09,2.67,0.73,3.58,9.18,2.56
+1,69319.25,1060.87,19.06,57.4,49.46,0.54,5.75,4.92,8.39,9.68,2.06

@@ -1,0 +1,22 @@
+{
+    "number_of_features": 17,
+    "features": [
+        "numerical__Customer_Age",
+        "numerical__Income",
+        "numerical__Total_Children",
+        "numerical__Family_Size",
+        "numerical__Total_Spending",
+        "numerical__Average_Spending_per_Purchase",
+        "numerical__Total_Purchases",
+        "numerical__NumWebPurchases",
+        "numerical__NumCatalogPurchases",
+        "numerical__NumStorePurchases",
+        "numerical__Total_Campaign_Acceptance",
+        "numerical__Digital_Engagement",
+        "numerical__NumWebVisitsMonth",
+        "numerical__Recency",
+        "numerical__Customer_Tenure_Years",
+        "numerical__Deal_Dependency",
+        "numerical__NumDealsPurchases"
+    ]
+}

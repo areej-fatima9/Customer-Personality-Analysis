@@ -1,0 +1,7 @@
+Metric,Value
+Algorithm,Gaussian Mixture Model
+Number of Components,2
+Silhouette Score,0.2736223984378495
+Davies-Bouldin Index,1.400798933507517
+AIC,19432.820168224094
+BIC,21380.91598609223

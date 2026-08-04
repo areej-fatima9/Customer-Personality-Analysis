@@ -1,0 +1,4 @@
+Stability_Test,Mean_Silhouette_Score,Mean_Davies_Bouldin_Index,ARI_Mean,ARI_Minimum
+Different Random States,0.2929,1.3796,1.0,1.0
+Different Customer Samples,0.2927,1.3788,,
+Bootstrap Sampling,0.2944,1.3751,,
