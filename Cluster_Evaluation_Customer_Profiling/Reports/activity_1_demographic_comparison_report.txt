@@ -1,0 +1,47 @@
+
+ACTIVITY 1 – DEMOGRAPHIC COMPARISON REPORT
+============================================================
+
+Cluster 0:
+- Customer Count: 1,207
+- Customer Percentage: 53.96%
+- Average Age: 54.3 years
+- Average Income: 36,951.44
+- Average Family Size: 2.30
+- Average Total Children: 1.30
+- Most Common Education: Graduation
+- Most Common Marital Status: Married
+
+Cluster 1:
+- Customer Count: 1,030
+- Customer Percentage: 46.04%
+- Average Age: 58.2 years
+- Average Income: 69,319.25
+- Average Family Size: 1.54
+- Average Total Children: 0.54
+- Most Common Education: Graduation
+- Most Common Marital Status: Married
+
+KEY DEMOGRAPHIC FINDINGS
+------------------------------------------------------------
+
+1. Cluster 0 contains more customers than Cluster 1.
+
+2. Cluster 1 has a higher average customer age.
+
+3. Cluster 1 has substantially higher average income.
+
+4. Cluster 0 has a larger average family size.
+
+5. Cluster 0 has a higher average number of children.
+
+6. Graduation is the most common education level in both clusters.
+
+7. Married is the most common marital status in both clusters.
+
+Overall Interpretation:
+Cluster 0 represents relatively younger, lower-income customers
+with larger household structures.
+
+Cluster 1 represents relatively older, higher-income customers
+with smaller household structures.
