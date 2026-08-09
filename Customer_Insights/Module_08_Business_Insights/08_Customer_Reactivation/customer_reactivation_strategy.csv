@@ -1,0 +1,3 @@
+Cluster,Segment_Name,Customers,Inactive_Customers,Inactive_Percentage,Average_Recency,Reactivation_Priority,Win_Back_Offer,Reactivation_Campaign,Recommended_Action,Reactivation_Timeline
+0,Budget-Conscious Family Buyers,1,0,0.0,0,Medium,Limited-time promotional offer,Customer reminder campaign,Use product recommendations and purchase reminders,Within 14 days
+1,High-Value Premium Customers,1,0,0.0,0,Medium,Limited-time promotional offer,Customer reminder campaign,Use product recommendations and purchase reminders,Within 14 days

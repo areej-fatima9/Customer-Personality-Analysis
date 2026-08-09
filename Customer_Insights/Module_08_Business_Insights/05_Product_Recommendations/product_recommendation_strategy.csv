@@ -1,0 +1,3 @@
+Cluster,Segment_Name,Primary_Product_Category,Secondary_Product_Category,Cross_Selling_Recommendation,Upselling_Recommendation,Bundle_Recommendation
+0,Budget-Conscious Family Buyers,Not Available,Not Available,Not Available products with Not Available products,Value packs and larger Not Available product bundles,Discounted Not Available + Not Available family bundle
+1,High-Value Premium Customers,Not Available,Not Available,Not Available products with Not Available products,Premium Not Available products and higher-value bundles,Premium Not Available + Not Available product bundle
