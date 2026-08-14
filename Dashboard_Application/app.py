@@ -1207,3 +1207,547 @@ st.caption(
     "Customer Personality Analysis | "
     "Machine Learning Customer Segmentation Dashboard"
 )
+
+# ============================================================
+# DAY 3 — MODEL / APPLICATION INTEGRATION
+# ============================================================
+
+import joblib
+import numpy as np
+
+
+# ============================================================
+# 1. MODEL FILE PATHS
+# ============================================================
+
+MODEL_PATH = os.path.join(
+    PROJECT_ROOT,
+    "Customer_Segmentation",
+    "Models",
+    "final_kmeans_model.pkl"
+)
+
+SCALER_PATH = os.path.join(
+    PROJECT_ROOT,
+    "Customer_Segmentation",
+    "Models",
+    "standard_scaler.pkl"
+)
+
+
+# ============================================================
+# 2. LOAD SAVED MODEL AND SCALER
+# ============================================================
+
+@st.cache_resource
+def load_ml_objects():
+
+    model = joblib.load(MODEL_PATH)
+    scaler = joblib.load(SCALER_PATH)
+
+    return model, scaler
+
+
+try:
+
+    final_model, final_scaler = load_ml_objects()
+
+except Exception as e:
+
+    st.error(f"Could not load saved ML files: {e}")
+    st.stop()
+
+
+# ============================================================
+# 3. VERIFY MODEL
+# ============================================================
+
+model_features = getattr(
+    final_model,
+    "n_features_in_",
+    None
+)
+
+scaler_features = getattr(
+    final_scaler,
+    "n_features_in_",
+    None
+)
+
+
+if model_features != 17:
+
+    st.error(
+        f"Final K-Means model expects "
+        f"{model_features} features instead of 17."
+    )
+
+    st.stop()
+
+
+if scaler_features != 17:
+
+    st.error(
+        f"StandardScaler expects "
+        f"{scaler_features} features instead of 17."
+    )
+
+    st.stop()
+
+
+# ============================================================
+# 4. DAY 3 SECTION
+# ============================================================
+
+st.header("🤖 Customer Segment Prediction")
+
+st.write(
+    "Enter customer information and use the saved "
+    "K-Means model to predict the customer segment."
+)
+
+
+# ============================================================
+# 5. CUSTOMER INPUT
+# ============================================================
+
+col1, col2 = st.columns(2)
+
+
+with col1:
+
+    customer_age = st.number_input(
+        "Customer Age",
+        min_value=18,
+        max_value=100,
+        value=40
+    )
+
+    income = st.number_input(
+        "Income",
+        min_value=0.0,
+        value=50000.0,
+        step=1000.0
+    )
+
+    total_children = st.number_input(
+        "Total Children",
+        min_value=0,
+        max_value=10,
+        value=1
+    )
+
+    family_size = st.number_input(
+        "Family Size",
+        min_value=1,
+        max_value=10,
+        value=2
+    )
+
+    total_spending = st.number_input(
+        "Total Spending",
+        min_value=0.0,
+        value=500.0,
+        step=50.0
+    )
+
+    total_purchases = st.number_input(
+        "Total Purchases",
+        min_value=0,
+        value=10
+    )
+
+    web_purchases = st.number_input(
+        "Web Purchases",
+        min_value=0,
+        value=4
+    )
+
+    catalog_purchases = st.number_input(
+        "Catalog Purchases",
+        min_value=0,
+        value=2
+    )
+
+    store_purchases = st.number_input(
+        "Store Purchases",
+        min_value=0,
+        value=5
+    )
+
+
+with col2:
+
+    campaign_acceptance = st.number_input(
+        "Total Campaign Acceptance",
+        min_value=0,
+        max_value=5,
+        value=0
+    )
+
+    digital_engagement = st.number_input(
+        "Digital Engagement",
+        min_value=0.0,
+        value=5.0
+    )
+
+    web_visits = st.number_input(
+        "Web Visits per Month",
+        min_value=0,
+        max_value=30,
+        value=5
+    )
+
+    recency = st.number_input(
+        "Recency",
+        min_value=0,
+        max_value=100,
+        value=30
+    )
+
+    customer_tenure = st.number_input(
+        "Customer Tenure (Years)",
+        min_value=0.0,
+        value=2.0
+    )
+
+    deal_dependency = st.number_input(
+        "Deal Dependency",
+        min_value=0.0,
+        value=0.2
+    )
+
+    deals_purchases = st.number_input(
+        "Deal Purchases",
+        min_value=0,
+        value=2
+    )
+
+
+# ============================================================
+# 6. ENGINEERED FEATURE
+# ============================================================
+
+if total_purchases > 0:
+
+    average_spending = (
+        total_spending / total_purchases
+    )
+
+else:
+
+    average_spending = 0.0
+
+
+# ============================================================
+# 7. CREATE 17 FEATURES
+# ============================================================
+
+input_data = pd.DataFrame({
+
+    "numerical__Customer_Age": [
+        customer_age
+    ],
+
+    "numerical__Income": [
+        income
+    ],
+
+    "numerical__Total_Children": [
+        total_children
+    ],
+
+    "numerical__Family_Size": [
+        family_size
+    ],
+
+    "numerical__Total_Spending": [
+        total_spending
+    ],
+
+    "numerical__Average_Spending_per_Purchase": [
+        average_spending
+    ],
+
+    "numerical__Total_Purchases": [
+        total_purchases
+    ],
+
+    "numerical__NumWebPurchases": [
+        web_purchases
+    ],
+
+    "numerical__NumCatalogPurchases": [
+        catalog_purchases
+    ],
+
+    "numerical__NumStorePurchases": [
+        store_purchases
+    ],
+
+    "numerical__Total_Campaign_Acceptance": [
+        campaign_acceptance
+    ],
+
+    "numerical__Digital_Engagement": [
+        digital_engagement
+    ],
+
+    "numerical__NumWebVisitsMonth": [
+        web_visits
+    ],
+
+    "numerical__Recency": [
+        recency
+    ],
+
+    "numerical__Customer_Tenure_Years": [
+        customer_tenure
+    ],
+
+    "numerical__Deal_Dependency": [
+        deal_dependency
+    ],
+
+    "numerical__NumDealsPurchases": [
+        deals_purchases
+    ]
+})
+
+
+# ============================================================
+# 8. EXACT FEATURE ORDER
+# ============================================================
+
+required_features = [
+
+    "numerical__Customer_Age",
+    "numerical__Income",
+    "numerical__Total_Children",
+    "numerical__Family_Size",
+    "numerical__Total_Spending",
+    "numerical__Average_Spending_per_Purchase",
+    "numerical__Total_Purchases",
+    "numerical__NumWebPurchases",
+    "numerical__NumCatalogPurchases",
+    "numerical__NumStorePurchases",
+    "numerical__Total_Campaign_Acceptance",
+    "numerical__Digital_Engagement",
+    "numerical__NumWebVisitsMonth",
+    "numerical__Recency",
+    "numerical__Customer_Tenure_Years",
+    "numerical__Deal_Dependency",
+    "numerical__NumDealsPurchases"
+
+]
+
+
+input_data = input_data[required_features]
+
+
+# ============================================================
+# 9. PREDICT SEGMENT
+# ============================================================
+
+if st.button(
+    "🔍 Predict Customer Segment",
+    type="primary"
+):
+
+    try:
+
+        scaled_input = final_scaler.transform(
+            input_data
+        )
+
+        predicted_cluster = int(
+            final_model.predict(
+                scaled_input
+            )[0]
+        )
+
+        # ====================================================
+        # 10. SHOW RESULT
+        # ====================================================
+
+        st.success(
+            f"Customer belongs to Cluster {predicted_cluster}"
+        )
+
+        # ====================================================
+        # 11. SEGMENT CHARACTERISTICS
+        # ====================================================
+
+        if "KMeans_Cluster" in df.columns:
+
+            # Convert cluster values to numeric for reliable matching
+            cluster_values = pd.to_numeric(
+                df["KMeans_Cluster"],
+                errors="coerce"
+            )
+
+            # Convert predicted cluster to integer
+            predicted_cluster_int = int(predicted_cluster)
+
+            # Select customers belonging to predicted cluster
+            cluster_data = df[
+                cluster_values == predicted_cluster_int
+            ].copy()
+
+            st.subheader(
+                "📊 Segment Characteristics"
+            )
+
+            if len(cluster_data) > 0:
+
+                c1, c2, c3 = st.columns(3)
+
+                # ------------------------------------------------
+                # Customer Count
+                # ------------------------------------------------
+
+                with c1:
+
+                    st.metric(
+                        "Customers",
+                        f"{len(cluster_data):,}"
+                    )
+
+                # ------------------------------------------------
+                # Average Income
+                # ------------------------------------------------
+
+                with c2:
+
+                    if "Income" in cluster_data.columns:
+
+                        income_values = pd.to_numeric(
+                            cluster_data["Income"],
+                            errors="coerce"
+                        )
+
+                        avg_income = income_values.mean()
+
+                        st.metric(
+                            "Average Income",
+                            f"${avg_income:,.0f}"
+                            if pd.notna(avg_income)
+                            else "$0"
+                        )
+
+                    else:
+
+                        st.metric(
+                            "Average Income",
+                            "N/A"
+                        )
+
+                # ------------------------------------------------
+                # Average Age
+                # ------------------------------------------------
+
+                with c3:
+
+                    # Prefer Customer_Age if available
+                    if "Customer_Age" in cluster_data.columns:
+
+                        age_values = pd.to_numeric(
+                            cluster_data["Customer_Age"],
+                            errors="coerce"
+                        )
+
+                    elif "Age" in cluster_data.columns:
+
+                        age_values = pd.to_numeric(
+                            cluster_data["Age"],
+                            errors="coerce"
+                        )
+
+                    else:
+
+                        age_values = pd.Series(dtype=float)
+
+                    avg_age = age_values.mean()
+
+                    st.metric(
+                        "Average Age",
+                        f"{avg_age:.1f}"
+                        if pd.notna(avg_age)
+                        else "N/A"
+                    )
+
+            else:
+
+                st.warning(
+                    f"No customers found for Cluster "
+                    f"{predicted_cluster_int}."
+                )
+
+        else:
+
+            st.warning(
+                "KMeans_Cluster column is not available."
+            )
+
+        # ====================================================
+        # 12. MARKETING RECOMMENDATION
+        # ====================================================
+
+        st.subheader(
+            "💡 Marketing Recommendation"
+        )
+
+        if predicted_cluster == 0:
+
+            st.info(
+                """
+                **Cluster 0 — Family-Oriented Customers**
+
+                • Promote family-friendly products  
+                • Provide value-based offers  
+                • Encourage repeat purchases  
+                • Recommend product bundles  
+                • Use personalized campaigns
+                """
+            )
+
+        elif predicted_cluster == 1:
+
+            st.info(
+                """
+                **Cluster 1 — High-Value Customers**
+
+                • Promote premium products  
+                • Provide exclusive offers  
+                • Encourage loyalty  
+                • Use personalized recommendations  
+                • Focus on upselling
+                """
+            )
+
+        # ====================================================
+        # 13. SHOW FEATURES
+        # ====================================================
+
+        with st.expander(
+            "View Features Used for Prediction"
+        ):
+
+            st.dataframe(
+                input_data,
+                use_container_width=True
+            )
+
+        # ====================================================
+        # 14. PASS MESSAGE
+        # ====================================================
+
+        st.success(
+            "DAY 3 MODEL INTEGRATION: PASS"
+        )
+
+    except Exception as e:
+
+        st.error(
+            f"Prediction failed: {e}"
+        )

@@ -1,0 +1,8 @@
+Item,Value
+Final Dataset,activity_1_age_income_comparison.csv
+Final Model,K-Means
+Number of Clusters,K = 2
+Dashboard Technology,Streamlit
+Customer Segmentation,Customer Personality Analysis
+Business Recommendations,Module 8 Business Insights
+Application Type,Interactive ML Business Dashboard
